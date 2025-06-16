@@ -25,4 +25,4 @@ dist-ssr
 package-lock.json
 node_modules/
 .cache/
-dist/
+dist/node_modules
