@@ -2,7 +2,7 @@
 import axios from "axios";
 
 export const baseURL = axios.create({
-  baseURL: "https://evangadi-forum-backened-mqfc.onrender.com",
+  baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
 baseURL.interceptors.request.use((config) => {
