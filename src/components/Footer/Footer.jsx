@@ -3,7 +3,7 @@
 //  * Production Summary: Displays site links and contact information in a multi-column layout.
 //  */
 
-import logoW from "../../images/logoWhite.png";
+import logoW from "../images/logoWhite.png";
 import { FaFacebookF } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
