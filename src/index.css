@@ -1,7 +1,7 @@
 /* Evangadi Forum global styles */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap");
-/* Add these at the root or body level to handle general overflow */
 
+/* Root variables */
 :root {
   --primary: #f28c38; /* Orange for buttons */
   --secondary: #526cf0; /* Blue for buttons/links */
@@ -10,6 +10,7 @@
   --bg-white: #ffffff;
   --bg-dark: #1a252f;
 }
+
 /* Base HTML and Body Styles */
 html {
   width: 100%;
@@ -48,7 +49,7 @@ body {
   flex: 1;
   overflow-y: auto;
   padding: 20px;
-  margin-top: 30px; /* Header height */
+  margin-top: 80px; /* Adjusted for header height */
   margin-bottom: 85px; /* Footer height */
   box-sizing: border-box;
 }
@@ -65,6 +66,8 @@ body {
   z-index: 100;
   margin: -8px 0;
 }
+
+/* Header container */
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -154,12 +157,10 @@ body {
   }
 
   .nav-menu.active {
-    /* display: flex; */
     gap: 1px;
   }
 
   .header-container {
-    /* flex-direction: column; */
     align-items: flex-start;
     justify-content: space-between;
   }
@@ -364,7 +365,8 @@ body {
 }
 
 .ask-form input,
-.ask-form textarea {
+.ask-form textarea,
+.ask-form select {
   width: 100%;
   padding: 10px;
   border: 1px solid #e0e0e0;
@@ -428,7 +430,6 @@ body {
 .auth-right {
   flex: 1;
   padding: 20px;
-  /* background: linear-gradient(to right, #e6f0fa 0%, #ffebee 100%); */
   border-radius: 8px;
   margin-left: 20px;
   min-height: 400px;
@@ -436,11 +437,8 @@ body {
 }
 
 .brand-logo {
-  /* font-family: "Montserrat", sans-serif; */
   font-size: 12px;
-  /* font-weight: 700; */
   color: var(--primary);
-  /* text-align: center; */
   margin-bottom: 20px;
 }
 
@@ -470,26 +468,27 @@ body {
   background-color: #e07b30;
 }
 
-.form-control {
+.form-control,
+.form-select {
   width: 100%;
   padding: 10px;
-  /* border: 1px solid #e0e0e0; */
-  /* border-radius: 4px; */
   font-size: 14px;
 }
+
 .form-input:focus,
 .form-input:not(:placeholder-shown),
-.form-input:active {
-  background-color: #e6f0fe !important; /* change this to whatever color you like */
+.form-input:active,
+.form-select:focus {
+  background-color: #e6f0fe !important;
   outline: none !important;
   box-shadow: none !important;
   border: 1px solid #b0b0b0 !important;
 }
 
 .form-input::placeholder {
-  color: #b0b0b0 !important; /* a more faint color for the placeholder */
-  /* font-size: 12px !important; */
+  color: #b0b0b0 !important;
 }
+
 .btn-primary {
   background-color: var(--secondary);
   color: #fff;
@@ -505,7 +504,7 @@ body {
   background-color: #3a50c7;
 }
 
-/* Footer container starts here */
+/* Footer container */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -516,7 +515,6 @@ body {
 
 .footer-section {
   flex: 1;
-  /* text-align: center; */
 }
 
 .footer-section h3 {
@@ -529,13 +527,14 @@ body {
   color: #91969a;
   margin: 5px 0;
 }
+
 .footer-section a {
   text-decoration: none;
   color: #91969a;
 }
+
 .socialLinks {
   display: flex;
-  /* justify-content: center; */
   gap: 10px;
   margin-top: 10px;
   margin-left: -5px;
@@ -551,6 +550,20 @@ body {
   border-radius: 50%;
   color: #fff;
   font-size: 20px;
+}
+
+/* Tag Styles */
+.badge {
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.list-group-item-action {
+  cursor: pointer;
+}
+
+.list-group-item-action:hover {
+  background-color: #f8f9fa;
 }
 
 /* Responsive Design */
@@ -594,7 +607,6 @@ body {
   }
 
   .footer-container {
-    /* flex-direction: column; */
     gap: 20px;
   }
 
@@ -613,7 +625,8 @@ body {
     font-size: 14px;
   }
 
-  .form-control {
+  .form-control,
+  .form-select {
     font-size: 12px;
   }
 
@@ -629,4 +642,3 @@ body {
     font-size: 10px;
   }
 }
-/* Ends Here */

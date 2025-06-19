@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
   const fetchUserData = async () => {
     try {
       const response = await baseURL.get("/api/auth/checkUser"); 
-      setUser(response.data);
+      setUser(response.data.dataValues);
       setIsAuthenticated(true);
     } catch (err) {
       console.error("Fetching user failed:", err);

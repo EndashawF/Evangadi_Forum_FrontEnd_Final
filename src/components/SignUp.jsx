@@ -50,12 +50,12 @@ const SignUp = () => {
         email: formData.email,
         password: formData.password,
       });
-      navigate("/auth?tab=login");
+      navigate("/auth?tab=login", { replace: true });
     } catch (err) {
       setError(err.response?.data?.error || "Registration failed");
     }
   };
-
+ 
   return (
     <div className="">
       <div className="text-center mb-4">

@@ -26,3 +26,4 @@ package-lock.json
 node_modules/
 .cache/
 dist/node_modules
+.env

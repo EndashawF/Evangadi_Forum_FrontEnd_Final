@@ -22,7 +22,7 @@ const ResetPassword = () => {
     try {
       const res = await baseURL.post("/api/auth/reset-password", {
         token,
-        newPassword,
+       newPassword,
       });
       setStatus({ type: "success", message: res.data.message });
       setTimeout(() => navigate("/auth?tab=login"), 3000);
@@ -31,7 +31,7 @@ const ResetPassword = () => {
       setStatus({ type: "error", message: msg });
     }
   };
-
+   console.log(newPassword, "newPassword");
   return (
     <div
       className="container d-flex align-items-center justify-content-center mt-5"

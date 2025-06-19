@@ -12,6 +12,6 @@ export default defineConfig({
     emptyOutDir: true, // Cleans the directory before building
   },
   server: {
-    port: 3000,
+    port: 5000,
   },
 });
