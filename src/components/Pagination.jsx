@@ -1,33 +1,29 @@
-/**
- * Pagination component for navigating through pages of questions
- * Features forward/backward buttons and a go-to-page input
- */
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-// import './../../index.css';
+// File: src/components/Pagination.js
+import { useState } from "react";
+import PropTypes from "prop-types";
 
-/**
- * @param {Object} props
- * @param {number} props.currentPage - Current page number
- * @param {number} props.totalPages - Total number of pages
- * @param {Function} props.onPageChange - Callback for page change
- */
+// Pagination component for navigating through pages of answers
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  const [gotoPage, setGotoPage] = useState('1');
+  // State for go-to-page input
+  const [gotoPage, setGotoPage] = useState("1");
 
   // Handle go-to-page form submission
   const handleGotoPage = (e) => {
     e.preventDefault();
+    // Parse input as integer
     const page = parseInt(gotoPage, 10);
+    // Validate page number
     if (page >= 1 && page <= totalPages && !isNaN(page)) {
+      // Call page change handler
       onPageChange(page);
-      setGotoPage('');
+      // Clear input
+      setGotoPage("");
     }
   };
 
   return (
-    <div className="d-flex justify-content-between align-items-center mt-4">
-      {/* Previous Button */}
+    <div className="d-flex justify-content-between align-items-center mt-1">
+      {/* Previous page button */}
       <button
         className="btn btn-secondary"
         onClick={() => onPageChange(currentPage - 1)}
@@ -36,12 +32,12 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         Previous
       </button>
 
-      {/* Page Info */}
+      {/* Display current page and total pages */}
       <span>
         Page {currentPage} of {totalPages}
       </span>
 
-      {/* Next Button */}
+      {/* Next page button */}
       <button
         className="btn btn-secondary"
         onClick={() => onPageChange(currentPage + 1)}
@@ -50,18 +46,20 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         Next
       </button>
 
-      {/* Go to Page Input */}
+      {/* Go to page form */}
       <form onSubmit={handleGotoPage} className="d-flex align-items-center">
+        {/* Page number input */}
         <input
           type="number"
           className="form-control"
-          style={{ width: '100px', marginRight: '10px' }}
+          style={{ width: "100px", marginRight: "10px" }}
           value={gotoPage}
           onChange={(e) => setGotoPage(e.target.value)}
           placeholder="Go to page"
           min="1"
           max={totalPages}
         />
+        {/* Submit button */}
         <button type="submit" className="btn btn-primary">
           Go
         </button>
@@ -70,6 +68,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   );
 };
 
+// Define prop types for type checking
 Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,

@@ -2,7 +2,7 @@
  * Component for creating a new question
  */
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { baseURL } from "../utils/api";
 import { useAuth } from "../utils/auth";
 import TagInput from "../components/TagInput";
@@ -28,7 +28,7 @@ const AskQuestion = () => {
     const fetchCategories = async () => {
       try {
         const response = await baseURL.get("/api/category");
-        setCategories(response.data.categories.map(cat => cat.name));
+        setCategories(response.data.categories.map((cat) => cat.name));
       } catch (err) {
         setError("Failed to fetch categories");
       }
@@ -52,7 +52,7 @@ const AskQuestion = () => {
         category,
         tags,
       });
-      console.log('Create question response:', response.data);
+      console.log("Create question response:", response.data);
       setError("");
       navigate(`/question/${response.data.questionid}`);
     } catch (err) {
@@ -69,7 +69,19 @@ const AskQuestion = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Ask a Question</h2>
+      <Link
+        to="/"
+        className="btn btn-outline-primary"
+        style={{
+          fontWeight: "500",
+          fontSize: "0.95rem",
+          padding: "0.4rem 1rem",
+          borderRadius: "6px",
+        }}
+      >
+        ← Back to Questions
+      </Link>
+      {/* <h2>Ask a Question</h2> */}
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
@@ -122,7 +134,7 @@ const AskQuestion = () => {
         <TagInput
           initialTags={tags}
           onTagsChange={(newTags) => {
-            console.log('Tags changed:', newTags);
+            console.log("Tags changed:", newTags);
             setTags(newTags);
           }}
         />

@@ -19,7 +19,7 @@ baseURL.interceptors.request.use(
     const token = localStorage.getItem("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
-      console.log("Attaching token to request:", config.url);
+      // console.log("Attaching token to request:", config.url);
     }
     return config;
   },
